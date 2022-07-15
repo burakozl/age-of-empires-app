@@ -1,0 +1,26 @@
+.App{
+    text-align: center;
+}
+.container{
+    text-align: left;
+}
+.costWood,.costFood,.costGold{
+    display: inline-flex;
+    margin: 5px;  
+    gap: 1em;
+  }
+nav{
+    ul{
+        margin: 0 10px 0 0;
+        display: flex;
+        justify-content: right;
+        padding: 10px;
+        gap: 1em;
+        font-size: xx-large;
+        list-style-type: none;
+        li{
+            padding: 5px;
+        }
+    }
+
+}
