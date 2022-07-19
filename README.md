@@ -1,3 +1,13 @@
+# React-Redux-Saga Age Of Empires App
+
+## Kulanılan Teknoloji ve Araçlar
+* React.js
+* Redux-Saga
+* React-router-dom
+* React-bootstrap
+
+## [openlivepage](https://burak-ozel-age-of-empires-app.netlify.app/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
