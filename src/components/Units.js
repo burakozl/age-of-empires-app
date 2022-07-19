@@ -36,6 +36,11 @@ function Units() {
   const filterByCastleAge = useSelector(state => state.units.filterByCastleAge);
   const filterByImperialAge = useSelector(state => state.units.filterByImperialAge);
 
+  const filterByWoodGold = useSelector(state => state.units.filterByWoodGold);
+  const filterByWoodFood = useSelector(state => state.units.filterByWoodFood);
+  const filterByFoodGold = useSelector(state => state.units.filterByFoodGold);
+  const filterByWoodFoodGold = useSelector(state => state.units.filterByWoodFoodGold);
+  
   let temp = [];
 
   const withoutNullValues = units.filter(item => item.cost !== null)
@@ -74,17 +79,7 @@ function Units() {
       setList([]);
     }
   }
-  const rangeWood = (e) => {
-    setWoodRange(e.target.value);
-    //console.log(woodRange);
-    if (isCheckedWoodCheckbox) {
-      const filterByWood = withoutNullValues.filter(item => item.cost.Wood >= woodRange);
-      setList(filterByWood);
-    } else {
-      setList([]);
-    }
-  }
-
+  
   const handleChangeFood = (e) => {
     setIsCheckedFoodCheckbox(e.target.checked);
     if (!isCheckedFoodCheckbox) {
@@ -97,16 +92,7 @@ function Units() {
 
     }
   }
-  const rangeFood = (e) => {
-    setFoodRange(e.target.value);
-    if (isCheckedFoodCheckbox) {
-      const filterByFood = withoutNullValues.filter(item => item.cost.Food >= foodRange);
-      setList(filterByFood);
-    } else {
-      setList([]);
-    }
-  }
-
+  
   const handleChangeGold = (e) => {
     setIsCheckedGoldCheckbox(e.target.checked)
     if (!isCheckedGoldCheckbox) {
@@ -119,6 +105,27 @@ function Units() {
       setList([]);
     }
   }
+  const rangeWood = (e) => {
+    setWoodRange(e.target.value);
+    //console.log(woodRange);
+    if (isCheckedWoodCheckbox) {
+      const filterByWood = withoutNullValues.filter(item => item.cost.Wood >= woodRange);
+      setList(filterByWood);
+    } else {
+      setList([]);
+    }
+  }
+
+  const rangeFood = (e) => {
+    setFoodRange(e.target.value);
+    if (isCheckedFoodCheckbox) {
+      const filterByFood = withoutNullValues.filter(item => item.cost.Food >= foodRange);
+      setList(filterByFood);
+    } else {
+      setList([]);
+    }
+  }
+
   const rangeGold = (e) => {
     setGoldRange(e.target.value);
     if (isCheckedGoldCheckbox) {
@@ -128,10 +135,30 @@ function Units() {
       setList([]);
     }
   }
-
+  
+  
   if (list.length > 1) {
     temp = list;
   }
+  
+  if (isCheckedWoodCheckbox === true && isCheckedGoldCheckbox === true) {
+    temp = filterByWoodGold;
+    //console.log(temp);
+  }
+  if (isCheckedWoodCheckbox === true && isCheckedFoodCheckbox === true) {
+    temp = filterByWoodFood;
+    //console.log(temp);
+  }
+  if (isCheckedFoodCheckbox === true && isCheckedGoldCheckbox === true) {
+    temp = filterByFoodGold;
+    //console.log(temp);
+  }
+  if (isCheckedWoodCheckbox === true && isCheckedFoodCheckbox === true && isCheckedGoldCheckbox === true) {
+    temp = filterByWoodFoodGold;
+    //console.log(temp);
+  }
+
+  
 
   const radios = [
     { name: 'All', value: '1' },
